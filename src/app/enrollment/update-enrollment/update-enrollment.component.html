@@ -1,0 +1,24 @@
+<form ngForm>
+  <div class="form-group">
+    <label for="StudentId">Student Name</label>
+    <input  class="form-control" name="fullName" [(ngModel)]="Enroll.FullName" disabled>
+  </div>
+ 
+
+  <div class="col-md-10">
+    <label class="col-md-2">Select Course</label>
+    <select  class="col-md-14 form-control" name="CourseName" [(ngModel)]="Enroll.CourseId">
+      <option selected>{{Enroll.CourseName}}</option> 
+      <option *ngFor="let op of DropDownCourseName" [value]="op.Id">
+        {{op.CourseName}}
+      </option>
+    </select>
+  </div>
+  
+  <div class="form-group">
+    <label for="session">Session</label>
+    <input type="text" class="form-control" name="session" [(ngModel)]="Enroll.Session" disabled>
+  </div>
+  
+  <button type="submit" class="btn btn-primary" (click)="OnUpdate()">Submit</button>
+</form>

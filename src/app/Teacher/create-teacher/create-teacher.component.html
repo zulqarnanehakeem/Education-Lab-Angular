@@ -1,0 +1,22 @@
+
+<h1>Enter Your Data</h1>
+
+<form ngForm (ngSubmit)="onSubmit()">
+  <label for="FirstName">First Name:</label>
+  <input type="text" name="firstName"  [(ngModel)]="Tch.FirstName" required>
+
+  <label for="LastName">Last Name:</label>
+  <input type="text" name="lastName"  [(ngModel)]="Tch.LastName" required>
+
+  <label for="Contact">Contact Number:</label>
+  <input type="number" name="Contact"  [(ngModel)]="Tch.Contact" required>
+
+  <label for="Qualification">Qualification</label>
+  <input type="text" name="Qualification"  [(ngModel)]="Tch.Qualification" required>
+
+  <label for="Email">Email</label>
+  <input type="email" name="Email"  [(ngModel)]="Tch.Email" required>
+
+  <button class="submit" style="color: white;"  >Submit</button>
+  <button class="btn btn-success"  (click)="NavigaetToTeacherList()">Back </button>
+</form>

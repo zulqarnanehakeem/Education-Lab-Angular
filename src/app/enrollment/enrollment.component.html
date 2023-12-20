@@ -1,0 +1,22 @@
+<button class="btn btn-success" (click)="NavigateToCreateForm()">New Enrollment</button>
+<table class="table">
+    <thead class="font-size 45px">
+        <tr>
+          <th>Enrollment Id</th> 
+          <th>Student Name</th>
+          <th>Courses Name</th>
+          <th>Session</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let e of enrollments">
+            <td>{{e.Id}}</td>
+            <td>{{e.FullName}}</td>
+            <td>{{e.CourseName}}</td>
+            <td>{{ e.Session }}</td>
+            <a class="btn btn-success"  routerLink='/UpdateEnrollment/{{e.Id}}/Edit' >Edit</a>
+
+            <button  class="btn btn-danger" style="background-color: red;" (click)="Delete($event,e.Id)">Delete</button>
+      </tbody>
+    </table>
+    <router-outlet></router-outlet>

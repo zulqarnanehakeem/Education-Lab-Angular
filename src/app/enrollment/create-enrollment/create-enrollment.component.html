@@ -1,0 +1,64 @@
+<!-- create-record.component.html -->
+
+<h1>Enter Detail To Enroll</h1>
+
+<form class="form-horizontal" ngForm (ngSubmit)="OnCreate()" >
+  <div class="form-group">
+    <label class="control-label col-md-2" for="StudentId">Select Student</label>
+    <div class="col-md-10">
+      <select name="StudentId" class="form-control" *ngIf="DropDownData"  [(ngModel)]="enroll.StudentId">
+        <option>--Select--</option>
+        <option  *ngFor="let op of DropDownData" [value]="op.Id">
+          {{op.FullName}}
+        </option>
+      </select>
+    </div>
+  </div>
+
+
+
+  <div class="form-group">
+    <label class="control-label col-md-2" for="Session">Select Session</label>
+    <div class="col-md-10">
+      <select name="Session" class="form-control"  [(ngModel)]="enroll.Session">
+        <option>Select</option>
+        <option  *ngFor="let Dp of session.sessions" [value]="Dp">
+          {{Dp}}
+        </option>
+      </select>
+    </div>
+  </div>
+
+
+
+
+
+  <div class="form-group">
+    <label class="control-label col-md-2" for="Courses">Select Courses</label>
+    <div class="col-md-10">
+      
+      <ng-multiselect-dropdown
+  [settings]="dropdownsetting"
+      [data]="dropdownList"
+      (onSelect)="onItemSelect($event)"
+      (onDeSelect)="onItemDeselect($event)"
+      (onSelectAll)="onAllSelected($event)"
+      (onDeSelectAll)="onDeSelectAll($event)"
+    >
+  </ng-multiselect-dropdown>
+    </div>
+  </div>
+  
+
+
+
+
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+      <button type="submit" class="btn btn-primary" >Submit</button>
+    </div>
+  </div>
+  
+
+</form>
+

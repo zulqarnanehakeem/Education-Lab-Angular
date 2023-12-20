@@ -1,0 +1,31 @@
+<mat-toolbar>
+    <mat-toolbar-row class="justify-content-between">
+        <button mat-icon-button style="position: -ms-page;" (click)="toggleSidebar()"><mat-icon>menu</mat-icon></button>
+        <div class="row mr-2 ml-auto">
+            <ul>
+                <li>
+                    <button
+                    mat-button
+                    [matMenuTriggerFor]="menu"
+                    class="user mt-2 d-flex align-items-center"
+                    >
+                    <img class="image"
+                    src="../../assets/Icons/dp (2).png"
+                    alt=""
+                    class="user-image mr-1 p-2"
+                    />
+                    Zulqarnain Malik
+                    <mat-icon class="mat-image-icon ml-1"
+                    >expand_more</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item>
+                        <mat-icon>logout</mat-icon>
+                        LogOut
+                    </button>
+                    </mat-menu>
+                </li>
+            </ul>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

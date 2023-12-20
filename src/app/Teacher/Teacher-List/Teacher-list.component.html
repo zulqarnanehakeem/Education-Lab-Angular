@@ -1,0 +1,26 @@
+<button  style="background-color: green;"  class="btn btn-success mx-2" (click)="navigateToCreateForm()">Create New</button>
+<table class="table">
+    <thead>
+        <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>    
+        <th>Contact</th>
+        <th>Qualification</th>
+        <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tbody>
+            <tr *ngFor="let teacher of teachers">
+                <td>{{ teacher.Id }}</td>
+                <td>{{ teacher.FirstName }}</td>
+                <td>{{ teacher.LastName }}</td>
+                <td>{{ teacher.Contact }}</td>
+                <td>{{ teacher.Qualification }}</td>
+                <td>{{ teacher.Email }}</td>
+                <a routerLink="/teachers/{{teacher.Id}}/Edit"  class="btn btn-success mx-2"> Edit</a>
+                
+                <button style="background-color: red;" class="btn btn-success mx-2" (click)="Delete($event,teacher.Id)">Delete</button>
+          </tbody>
+</table>

@@ -1,0 +1,21 @@
+<button class="btn btn-success" (click)="navigateToCreateCourse()">Create New</button>
+<table class="table">
+    <thead>
+        <tr>
+        <th>Course ID</th>
+        <th>Course Name</th>
+        <th>Course Description</th>
+        <th>Teacher</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of courses">
+            <td>{{c.Id}}</td>
+            <td>{{c.CourseName}}</td>
+            <td>{{c.Description}}</td>
+            <td>{{c.Teacher?.FirstName}}{{" "}}{{c.Teacher?.LastName}}</td>
+            <a routerLink='/Course/{{c.Id}}/Edit'   class="btn btn-success mx-2">Edit</a>
+            <button class="btn btn-danger" (click)="Delete($event,c.Id)">Delete</button>
+    </tbody>
+</table>
+<router-outlet></router-outlet>

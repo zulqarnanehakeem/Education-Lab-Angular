@@ -1,0 +1,23 @@
+<!-- create-record.component.html -->
+
+<h1>Please Enter Your Data</h1>
+
+<form ngForm (ngSubmit)="onCreate()">
+  <label for="CourseName">Course Name:</label>
+  <input type="text" name="CourseName" [(ngModel)]="Cs.CourseName" required>
+
+  <label for="Description">Course Description:</label>
+  <input type="text" name="Description"   [(ngModel)]="Cs.Description" required>
+
+  <label for="Teacher" >Select Teacher:</label>
+  
+  <select name="TeacherName" class="form-control"  [(ngModel)]="Cs.TeacherId" >
+    <option>--Select--</option>
+    <option *ngFor="let op of DropDownData"  [value]="op.Id">
+    {{op.FullName}}
+    </option>
+  </select> 
+
+  <button type="submit" style="padding: 10px 20px; font-size: 16px; margin: 5px; background-color: #28a745; color: #fff;" >Submit</button>
+  <button type="submit" (click)="navigateToCourseList()" style="padding: 10px 20px; font-size: 16px; margin: 5px; background-color: #28a745; color: #fff;" >Back</button>
+</form>

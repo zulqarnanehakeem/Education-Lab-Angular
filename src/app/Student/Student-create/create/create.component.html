@@ -1,0 +1,27 @@
+<!-- create-record.component.html -->
+
+<h1>Please Enter Your Data</h1>
+
+<form ngForm (ngSubmit)="onSubmit()">
+  <label for="firstName">First Name:</label>
+  <input type="text" name="firstName" [(ngModel)]="std.FirstName" required>
+
+  <label for="lastName">Last Name:</label>
+  <input type="text" name="lastName" [(ngModel)]="std.LastName" required>
+
+  <label for="regNo">Registration Number:</label>
+  <input type="text" name="regNo" [(ngModel)]="std.RegestrationNo" required>
+
+  <label for="email">Father Name:</label>
+  <input type="text" name="email" [(ngModel)]="std.FatherName" required>
+
+
+  <label for="email">Email:</label>
+  <input type="email" name="email" [(ngModel)]="std.Email" required>
+
+  <label for="contactNumber">Contact Number:</label>
+  <input type="tel" name="contactNumber" [(ngModel)]="std.Contact" required>
+
+  <button type="submit" style="padding: 10px 20px; font-size: 16px; margin: 5px; background-color: #28a745; color: #fff;" >Submit</button>
+  <button style="padding: 10px 20px; font-size: 16px; margin: 5px; background-color: #28a745; color: #fff;" (click)="NavigateToList()" class="btn btn-danger">Back</button>
+</form>

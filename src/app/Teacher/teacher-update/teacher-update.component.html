@@ -1,0 +1,25 @@
+
+
+<h1>Update Data</h1>
+
+<form ngForm (ngSubmit)="onUpdate()">
+  <div *ngIf="Tch">
+  <label for="firstName">First Name:</label>
+  <input type="text" name="firstName" [(ngModel)]="Tch.FirstName" required>
+
+  <label for="lastName">Last Name:</label>
+  <input type="text" name="lastName" [(ngModel)]="Tch.LastName" required>
+
+  <label for="Contact">Contact:</label>
+  <input type="number" name="contactNumber" [(ngModel)]="Tch.Contact" required>
+
+  <label for="Qualification">Qualification</label>
+  <input type="text" name="Qualification" [(ngModel)]="Tch.Qualification" required>
+
+  <label for="email">Email:</label>
+  <input type="email" name="email" [(ngModel)]="Tch.Email" required>
+  </div>
+  <button type="submit">Update</button>
+  
+  <button class="btn btn-success"  (click)="NavigaetToTeacherList()">Back </button>
+</form>
