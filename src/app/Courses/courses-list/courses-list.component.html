@@ -1,11 +1,20 @@
+<div class="container">
+<div class="row">
+    <div class="col-md-10">
+    <h1>Courses List</h1>
+    </div>
+<div class="col-md-2">
 <button class="btn btn-success" (click)="navigateToCreateCourse()">Create New</button>
-<table class="table">
+</div>
+</div>
+<table class="table table-striped">
     <thead>
         <tr>
         <th>Course ID</th>
         <th>Course Name</th>
         <th>Course Description</th>
         <th>Teacher</th>
+        <th style="text-align: center;">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -14,8 +23,11 @@
             <td>{{c.CourseName}}</td>
             <td>{{c.Description}}</td>
             <td>{{c.Teacher?.FirstName}}{{" "}}{{c.Teacher?.LastName}}</td>
-            <a routerLink='/Course/{{c.Id}}/Edit'   class="btn btn-success mx-2">Edit</a>
+            <td class="text-center">  
+            <a routerLink='/Course/{{c.Id}}/Edit'   class="btn btn-success mx-2">Edit</a>|
             <button class="btn btn-danger" (click)="Delete($event,c.Id)">Delete</button>
-    </tbody>
+        </td>
+        </tbody>
 </table>
+</div>
 <router-outlet></router-outlet>

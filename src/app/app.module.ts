@@ -9,7 +9,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { StudentListComponent } from './Student/Student-list/student-list.component';
 import { CreateComponent} from './Student/Student-create/create/create.component';
@@ -31,9 +31,14 @@ import { CreateEnrollmentComponent } from './enrollment/create-enrollment/create
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UpdateEnrollmentComponent } from './enrollment/update-enrollment/update-enrollment.component';
-
-
-
+import { AssignmentComponent } from './assignment/assignment.component';
+import { AssignmentListComponent } from './assignment/assignment-list/assignment-list.component';
+import { DownloadAssignmentComponent } from './assignment/download-assignment/download-assignment.component';
+import { AssignemntUploadComponent } from './assignment/assignemnt-upload/assignemnt-upload.component';
+import { LoginComponent } from './Designs/login/login.component';
+import { RegisterComponent } from './Designs/register/register.component';
+import { HttpInterceptor } from '@angular/common/http';
+import { AuthInterceptor } from './Interceptor/authinterceptor';
 
 
 const routes: Routes = [
@@ -47,14 +52,23 @@ const routes: Routes = [
   {path:'Courses-list',component:CoursesListComponent},
   {path:'Create-Course',component:CreateCourseComponent},
   {path:'Course/:Id/Edit', component:UpdateCourseComponent},
-  {path:'', redirectTo:'Home', pathMatch:'full'},
-  {path:'Home', component:HomeComponent},
+  {path:'home', component:HomeComponent},
   {path:'DashBoard', component:DashBoardComponent},
   {path:'Header', component:HeaderComponent},
   {path:'SideNave', component:SidenavComponent},
   {path:'Enrollment', component:EnrollmentComponent},
   {path:'CreateEnrollment', component:CreateEnrollmentComponent},
-  {path:'UpdateEnrollment/:id/Edit', component:UpdateEnrollmentComponent}
+  {path:'UpdateEnrollment/:id/Edit', component:UpdateEnrollmentComponent},
+  {path:'Assignment', component:AssignmentComponent},
+  {path:'AssignmentList', component:AssignmentListComponent},
+  {path:'DownloadAssignment', component:DownloadAssignmentComponent},
+  {path:'UploadAssignment',component:AssignemntUploadComponent},
+  {path:'Login', component:LoginComponent},
+  {path:'app', component:AppComponent},
+  { path: '', redirectTo: '/Login', pathMatch: 'full' },
+  {path:'Register', component:RegisterComponent},
+  
+  
 ];
 @NgModule({
   declarations: [
@@ -75,7 +89,15 @@ const routes: Routes = [
     DashBoardComponent,
     EnrollmentComponent,
     CreateEnrollmentComponent,
-    UpdateEnrollmentComponent
+    UpdateEnrollmentComponent,
+    AssignmentComponent,
+    AssignmentListComponent,
+    DownloadAssignmentComponent,
+    AssignemntUploadComponent,
+    LoginComponent,
+    RegisterComponent,
+
+    
   ],
   imports: [
     HttpClientModule,
@@ -96,11 +118,17 @@ BrowserModule,
  NgMultiSelectDropDownModule.forRoot(),
  ReactiveFormsModule,
 
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
- 
 
+  ],
+  providers: [
+    {
+  // bootstrap: [AppComponent],
+  provide: HTTP_INTERCEPTORS,
+  useClass: AuthInterceptor, // Provide the class name here
+  multi: true,
+    }
+  ],
+ bootstrap: [AppComponent],
 })
 export class AppModule { };
 
