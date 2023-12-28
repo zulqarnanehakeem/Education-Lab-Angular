@@ -1,13 +1,6 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-10">
-<h1 style="text-size-adjust: medium;">Students Record</h1>
-    </div>
-    <div class="col-md-2">
+
 <button style="background-color: green;" class="btn btn-success mx-2"  (click)="navigateToCreateForm()">Create New</button>
-</div>
-</div>
-<table class="table table-striped">
+<table class="table">
     <thead>
         <tr>
           <th>Id</th> 
@@ -17,7 +10,6 @@
           <th>Father Name</th>
           <th>Contact No</th>
           <th>Email</th>
-          <th class="text-center">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -29,11 +21,8 @@
             <td>{{ student.FatherName }}</td>
             <td>{{ student.Contact }}</td>
             <td>{{ student.Email }}</td>
-            <td class="text-center">
         <a routerLink="/students/{{student.Id}}/Edit" class="btn btn-success mx-2">Edit </a>
-           | <button   style="background-color: red;"  class="btn btn-danger" (click)="DeleteStudent($event,student.Id)" >Delete</button>
-          </td>
-          </tbody>
+            <button   style="background-color: red;"  class="btn btn-danger" (click)="DeleteStudent($event,student.Id)" >Delete</button>
+      </tbody>
     </table>
-  </div>
     <router-outlet></router-outlet>

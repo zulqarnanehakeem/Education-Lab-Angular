@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { TeacherService } from 'src/app/Services/teacher.service';
 import { Teacher } from 'src/app/Models/Teacher';
 import { Router } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-Teacher-list',
@@ -11,8 +10,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TeacherListComponent {
  teachers?:Teacher[]; 
-authToken:string='';
- constructor(private teacherservice:TeacherService,private router:Router,private route:ActivatedRoute){}
+
+ constructor(private teacherservice:TeacherService,private router:Router){}
 
  navigateToCreateForm() {
   this.router.navigate(['/Teacher-Create'])
@@ -20,8 +19,6 @@ authToken:string='';
 
  ngOnInit():void
  {
-  // this.authToken = this.route.snapshot?.state?.token || '';
-  //   console.log(this.authToken);
 this.RetriveTecher();
  }
 

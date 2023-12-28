@@ -1,20 +1,11 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-10">
-      <h1>Enrollments List</h1>
-    </div>
-    <div  class="col-md-2">
-      <button class="btn btn-success" (click)="NavigateToCreateForm()">New Enrollment</button>
-    </div>
-  </div>
-<table class="table table-striped">
+<button class="btn btn-success" (click)="NavigateToCreateForm()">New Enrollment</button>
+<table class="table">
     <thead class="font-size 45px">
         <tr>
           <th>Enrollment Id</th> 
           <th>Student Name</th>
           <th>Courses Name</th>
           <th>Session</th>
-          <th class="text-center">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -23,12 +14,9 @@
             <td>{{e.FullName}}</td>
             <td>{{e.CourseName}}</td>
             <td>{{ e.Session }}</td>
-            <td class="text-center">
             <a class="btn btn-success"  routerLink='/UpdateEnrollment/{{e.Id}}/Edit' >Edit</a>
-|
+
             <button  class="btn btn-danger" style="background-color: red;" (click)="Delete($event,e.Id)">Delete</button>
-          </td>
-          </tbody>
+      </tbody>
     </table>
-  </div>
     <router-outlet></router-outlet>

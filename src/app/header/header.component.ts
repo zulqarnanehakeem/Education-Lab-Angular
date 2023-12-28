@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
-import { Router,NavigationEnd } from '@angular/router';
-import { Location } from '@angular/common';
-import { filter } from 'rxjs/operators';
+import { MatSidenav } from '@angular/material/sidenav';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,32 +11,8 @@ import { filter } from 'rxjs/operators';
 export class HeaderComponent implements OnInit {
 @Output() toggleSidebarForMe:EventEmitter<any>=new EventEmitter();
 
-isLogin: boolean = false;
-constructor(private router:Router,private location:Location){}
-ngOnInit(){
-let token = localStorage.getItem("authToken");
-if(token){
-this.isLogin=true;
-}
-}
-LogOut()
-{
-  localStorage.clear();
- this.router.navigate(['/Login']);
-  //.then(() => {
-  //   // Reload the page after navigation
-  //   window.location.reload();
-  // });
-  
-  this.router.events.pipe(
-    filter(event => event instanceof NavigationEnd)
-  ).subscribe(() => {
-    // Reload the page after navigation
-    window.location.reload();
-  });
-  
-}
-
+constructor(){}
+ngOnInit():void{}
 toggleSidebar()
 {
   this.toggleSidebarForMe.emit();
