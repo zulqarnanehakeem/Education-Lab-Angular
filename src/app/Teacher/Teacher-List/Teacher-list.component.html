@@ -1,13 +1,24 @@
-<button  style="background-color: green;"  class="btn btn-success mx-2" (click)="navigateToCreateForm()">Create New</button>
-<table class="table">
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <h2>Teacher List</h2>
+        </div>
+        <div class="col-md-2">
+            <button  style="background-color: green;"  class="btn btn-success mx-2" (click)="navigateToCreateForm()">Create New</button>
+        </div>
+    </div>
+    
+
+<table class="table table-striped">
     <thead>
         <tr>
-        <th>ID</th>
-        <th>First Name</th>
-        <th>Last Name</th>    
-        <th>Contact</th>
-        <th>Qualification</th>
-        <th>Email</th>
+        <th class="text-center">ID</th>
+        <th class="text-center">First Name</th>
+        <th class="text-center">Last Name</th>    
+        <th class="text-center">Contact</th>
+        <th class="text-center">Qualification</th>
+        <th class="text-center">Email</th>
+        <th class="text-center">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -19,8 +30,14 @@
                 <td>{{ teacher.Contact }}</td>
                 <td>{{ teacher.Qualification }}</td>
                 <td>{{ teacher.Email }}</td>
-                <a routerLink="/teachers/{{teacher.Id}}/Edit"  class="btn btn-success mx-2"> Edit</a>
-                
-                <button style="background-color: red;" class="btn btn-success mx-2" (click)="Delete($event,teacher.Id)">Delete</button>
-          </tbody>
+                <td class="text-center">
+                    <a routerLink="/teachers/{{teacher.Id}}/Edit" class="btn btn-success mx-2">
+                        <i class="bi bi-pencil"></i> Edit
+                    </a>|
+                    <button style="background-color: red;" class="btn btn-danger" (click)="Delete($event, teacher.Id)">
+                        <i class="bi bi-trash"></i> Delete
+                    </button>
+                </td>
+            </tbody>
 </table>
+</div>

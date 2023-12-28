@@ -1,0 +1,64 @@
+<form #registrationForm="ngForm" (ngSubmit)="Register()">
+<section class="h-100 bg-dark">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+                <div class="card card-registration my-4">
+                    <div class="row g-0">
+                        <div class="col-xl-6 d-none d-xl-block">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                                alt="Sample photo" class="img-fluid"
+                                style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="card-body p-md-5 text-black">
+                                <h3 class="mb-5 text-uppercase" style="text-align: center; font-family: 'Times New Roman', Times, serif; font-weight: bolder;">Register Here!</h3>
+
+                                <div class="mb-4">
+                                    <div class="form-outline">
+                                        <input type="text"  placeholder="Enter First Name" class="form-control"  [(ngModel)]="register.FirstName" name="FirstName"/>
+                                        <label class="form-label" style="font-family: 'Times New Roman', Times, serif;" for="form3Example1m">First Name</label>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <div class="form-outline">
+                                        <input type="text"  placeholder="Enter Last Name"  class="form-control" [(ngModel)]="register.LastName" name="LastName">
+                                        <label class="form-label" style="font-family: 'Times New Roman', Times, serif;" for="form3Example1n">Last Name</label>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <div class="form-outline">
+                                        <input type="text"  placeholder="Enter User Name"  class="form-control" [(ngModel)]="register.UserName" name="username" />
+                                        <label class="form-label" style="font-family: 'Times New Roman', Times, serif;" for="form3Example1o">User Name</label>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <div class="form-outline">
+                                        <input type="password" placeholder="Enter Password"  class="form-control" />
+                                        <label class="form-label" style="font-family: 'Times New Roman', Times, serif;" >Password</label>
+                                    </div>
+                                </div>
+								<div class="mb-4">
+                                    <div class="form-outline">
+                                        <input type="password"  placeholder="Confirm Your Password"  class="form-control" [(ngModel)]="register.Password" name="password" autocomplete="new-password"/>
+                                        <label class="form-label"  style="font-family: 'Times New Roman', Times, serif;" >Confirm Password</label>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-end">
+                                    <button type="reset" class="btn btn-light me-2">Reset All</button>
+                                    <button type="button" class="btn btn-warning" (click)="Register()">Submit Form</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</form>

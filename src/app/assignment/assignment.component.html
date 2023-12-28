@@ -1,0 +1,49 @@
+<h1 style="text-align: center;">Upload Assignment</h1>
+
+<form class="form-horizontal"  ngForm  (ngSubmit)="OnSubmit()">
+  <div class="form-group">
+    <label class="control-label col-md-2">Select File</label>
+    <div class="form-control col-md-10">
+      <input type="file"  (change)="OnFileSelected($event)" >
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <label class="control-label col-md-2" >Select Course</label>
+    <div class="col-md-10">
+      <select name="CourseName" class="form-control" *ngIf="DropDownCourseName" [(ngModel)]="CourseId" >
+        <option selected>Select</option>
+        <option  *ngFor="let op of DropDownCourseName" [value]="op.Id">
+          {{op.CourseName}}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-md-2">Start Time</label>
+    <div class="col-md-10">
+      <input type="datetime" name="StartTime" class="form-control" [(ngModel)]="Data.StartTime">
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <label class="control-label col-md-2">End Time</label>
+    <div class="col-md-10">
+      <input type="datetime" name="EndTime" class="form-control"   [(ngModel)]="Data.EndTime" >
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <label class="control-label col-md-2">Scores</label>
+    <div class="col-md-10">
+      <input type="number" name="Scores"  class="form-control" [(ngModel)]="Data.Score">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>

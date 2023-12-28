@@ -1,0 +1,18 @@
+/* Add this CSS to your stylesheet or in your <style> tag */
+
+.form-check-input {
+    width: 1.2em;
+    height: 1.2em;
+    margin-top: 0.2em; /* Adjust spacing as needed */
+}
+
+.form-check-label {
+    font-size: 1rem;
+    margin-left: 0.5em; /* Adjust spacing as needed */
+}
+
+/* Optional: Customize the checkbox appearance */
+.form-check-input:checked {
+    background-color: #393f81; /* Change to your preferred color */
+    border-color: #393f81; /* Change to your preferred color */
+}

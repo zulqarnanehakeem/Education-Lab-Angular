@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Teacher } from '../Models/Teacher';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Observable, catchError, tap } from 'rxjs';
 import { AppConstants } from '../Route Configration/Constants';
-
+import { ActivatedRoute } from '@angular/router';
+import { AuthInterceptor } from '../Interceptor/authinterceptor';
 
 
 
@@ -15,7 +16,8 @@ import { AppConstants } from '../Route Configration/Constants';
 export class TeacherService {
 
   TeacherName:any=[];
-  constructor(private http:HttpClient) 
+  ngOnInit(){}
+  constructor(private http:HttpClient,private route:ActivatedRoute) 
   {
 
    }
@@ -23,10 +25,16 @@ export class TeacherService {
    
    get():Observable<Teacher[]>
    {
+    
     const apiResponse=this.http.get<Teacher[]>(`${AppConstants.baseURL}/${AppConstants.TeacherGetRelativePath}`);
     console.log(apiResponse);
     return apiResponse;
    }
+
+
+
+
+
 
    CreateTeacher(teacher:Teacher)
    {
